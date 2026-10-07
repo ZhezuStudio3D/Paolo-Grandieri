@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-20%20-20%20180%20180%22%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2270%22%20r%3D%2290%22%20fill%3D%22%23536878%22/%3E%3Cdefs%3E%3CclipPath%20id%3D%22c%22%3E%3Cpath%20d%3D%22M75%200.36A35%2035%200%200%201%2075%2069.64Z%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M65%200.03A70%2070%200%200%200%2065%20139.97Z%22/%3E%3Cpath%20d%3D%22M75%2075H139.82A70%2070%200%200%201%2075%20139.82Z%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23fff%22%20clip-path%3D%22url%28%23c%29%22%3E%3Crect%20x%3D%2275%22%20y%3D%220%22%20width%3D%227%22%20height%3D%2265%22/%3E%3Crect%20x%3D%2289%22%20y%3D%220%22%20width%3D%227%22%20height%3D%2265%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="paolo.jpg">
+<title>Paolo Grandieri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column, like a card in the hand. A chrome plate (the brand object) on top, contact rows, then the full profile on demand. */
+:root{
+  --onyx:#0A0A0A; --slate:#536878; --alabaster:#E5E4E2; --white:#FFFFFF;
+  --bg:#E5E4E2; --surface:#F4F4F2; --fg:#0A0A0A; --muted:#4A5560; --line:#C9CDD1; --accent:#536878; --on-accent:#FFFFFF;
+  --plate-fg:#E5E4E2; --plate-muted:#9AA7B1;
+  --sans:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0A0A0A;--surface:#13171B;--fg:#E5E4E2;--muted:#9AA7B1;--line:#26303A;--accent:#7F95A6;--on-accent:#0A0A0A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#13171B;--fg:#E5E4E2;--muted:#9AA7B1;--line:#26303A;--accent:#7F95A6;--on-accent:#0A0A0A;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px 16px 48px}
+.wrap{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.mono{font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* plate */
+.plate{position:relative;overflow:hidden;border-radius:18px;padding:22px 22px 26px;color:var(--plate-fg);
+  background:radial-gradient(130% 85% at 105% 118%, #E5E4E2 0%, #A9B5BE 14%, #536878 34%, #222B33 62%, #0A0A0A 88%);
+  display:flex;flex-direction:column;gap:22px;box-shadow:0 24px 48px -24px rgba(10,10,10,.55)}
+.plate-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mark{width:44px;height:44px;flex:none}
+.langs{display:flex;gap:2px;background:rgba(229,228,226,.08);border:1px solid rgba(229,228,226,.16);border-radius:999px;padding:3px}
+.langs button{font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--plate-muted);background:none;border:0;border-radius:999px;padding:8px 11px;cursor:pointer;min-height:32px}
+.langs button[aria-pressed="true"]{background:#E5E4E2;color:#0A0A0A}
+.who{display:flex;flex-direction:column;gap:14px}
+.photo{width:132px;height:176px;border-radius:12px;object-fit:cover;border:1px solid rgba(229,228,226,.35);filter:grayscale(1) contrast(1.05)}
+.name{font-size:38px;font-weight:500;letter-spacing:-.02em;line-height:1.02;margin:0;text-wrap:balance}
+.role{color:var(--plate-fg);opacity:.85}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--plate-muted)}
+.construct{position:absolute;right:-70px;top:-70px;width:240px;height:240px;opacity:.22;pointer-events:none}
+
+/* actions */
+.save{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:12px;background:var(--slate);color:#FFFFFF;text-decoration:none;font-weight:500;font-size:16px}
+.save:hover{background:#465a69}
+.rows{background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;min-height:60px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row svg{width:20px;height:20px;flex:none;stroke:var(--accent);fill:none;stroke-width:1.6}
+.row .txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.row .lbl{color:var(--muted)}
+.row .val{font-size:15px;overflow-wrap:anywhere;text-decoration:none}
+.row a.val:hover{text-decoration:underline}
+#email{font-size:clamp(13px,3.6vw,15px);overflow-wrap:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.copy{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg);background:none;border:1px solid var(--line);border-radius:999px;padding:8px 10px;cursor:pointer;min-height:36px;flex:none}
+.copy:hover{border-color:var(--accent)}
+.soon{color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:8px 11px;flex:none}
+
+/* full profile */
+.more{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:52px;padding:0 18px;border-radius:12px;border:1px solid var(--fg);background:none;color:var(--fg);font:500 15px var(--sans);cursor:pointer}
+.more .chev{transition:transform .25s ease}
+.more[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.profile{display:flex;flex-direction:column;gap:28px;padding-top:8px}
+.sec{display:flex;flex-direction:column;gap:14px}
+.sec h2{margin:0;font-size:13px;font-weight:500;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.lead{margin:0;font-size:17px;line-height:1.6}
+.item{display:grid;grid-template-columns:86px 1fr;gap:4px 16px}
+.item .when{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.item .what{min-width:0;display:flex;flex-direction:column;gap:3px}
+.item h3{margin:0;font-size:16px;font-weight:600}
+.item .where{color:var(--muted);font-size:14px}
+.item p{margin:4px 0 0;font-size:14.5px;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px}
+.tier{display:grid;grid-template-columns:110px 1fr;gap:10px 16px;align-items:start}
+.tier .mono{color:var(--muted);padding-top:9px}
+.langrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.langrow div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px}
+.langrow b{font-weight:500}
+.langrow span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+footer{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}
+footer svg{width:22px;height:22px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px}
+@media (max-width:380px){.name{font-size:32px}.langrow{grid-template-columns:1fr}.tier{grid-template-columns:1fr}.tier .mono{padding-top:0}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <section class="plate" aria-label="Paolo Grandieri">
+    <svg class="construct" viewBox="-10 -10 160 160" aria-hidden="true"><g fill="none" stroke="#E5E4E2" stroke-width=".5" stroke-dasharray="2 2"><circle cx="70" cy="70" r="70"/><circle cx="70" cy="35" r="35"/><path d="M70 -10V150M-10 70H150"/></g></svg>
+    <div class="plate-top">
+      <svg class="mark" viewBox="0 0 140 140" role="img" aria-label="Monogramma GP"><defs><clipPath id="pb"><path d="M73 0.13A35 35 0 0 1 73 69.87Z"/></clipPath></defs><g fill="#E5E4E2"><path d="M67 0.06A70 70 0 0 0 67 139.94Z"/><path d="M73 73H139.94A70 70 0 0 1 73 139.94Z"/></g><g fill="#7F95A6" clip-path="url(#pb)"><rect x="75" y="0" width="2" height="67"/><rect x="79.5" y="0" width="2" height="67"/><rect x="84" y="0" width="2" height="67"/><rect x="88.5" y="0" width="2" height="67"/><rect x="93" y="0" width="2" height="67"/><rect x="97.5" y="0" width="2" height="67"/><rect x="102" y="0" width="2" height="67"/></g></svg>
+      <div class="langs" role="group" aria-label="Lingua · Idioma · Language">
+        <button type="button" id="l-it" data-l="it">IT</button><button type="button" id="l-es" data-l="es">ES</button><button type="button" id="l-en" data-l="en">EN</button>
+      </div>
+    </div>
+    <div class="who">
+      <img class="photo" src="paolo.jpg" alt="Paolo Grandieri" width="132" height="176">
+      <h1 class="name">Paolo Grandieri</h1>
+      <p class="mono role" style="margin:0">Industrial Designer · 3D Visualizer</p>
+      <div class="meta mono"><span data-t="loc">Italia</span><span data-t="degree">M.A. Industrial Design · M.A. Digital Architecture</span></div>
+    </div>
+  </section>
+
+  <a class="save" id="save" href="paolo-grandieri.vcf" download="Paolo-Grandieri.vcf">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+    <span data-t="save">Salva contatto</span>
+  </a>
+
+  <div class="rows">
+    <div class="row">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+      <div class="txt"><span class="mono lbl">Email</span><a class="val" id="email" href="mailto:paolograndieri1@gmail.com">paolograndieri1@gmail.com</a></div>
+      <button type="button" class="copy" data-copy="paolograndieri1@gmail.com" data-t="copy">Copia</button>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3h3l1.5 4.5-2 1.2a11 11 0 0 0 6.2 6.2l1.2-2 4.5 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z"/></svg>
+      <div class="txt"><span class="mono lbl" data-t="phone">Telefono</span><a class="val" href="tel:+393319327122">+39 331 932 7122</a></div>
+      <button type="button" class="copy" data-copy="+393319327122" data-t="copy">Copia</button>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+      <div class="txt"><span class="mono lbl">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/paolo-grandieri-0aa71520b/" target="_blank" rel="noopener">in/paolo-grandieri</a></div>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg>
+      <div class="txt"><span class="mono lbl">Instagram</span><a class="val" href="https://www.instagram.com/paolo_grandieri/" target="_blank" rel="noopener">@paolo_grandieri</a></div>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM8 7V5h8v2"/></svg>
+      <div class="txt"><span class="mono lbl">Portfolio</span><span class="val" data-t="pfdesc">Progetti selezionati 2026</span></div>
+      <span class="mono soon" data-t="soon">In arrivo</span>
+    </div>
+  </div>
+
+  <button type="button" class="more" id="more" aria-expanded="false" aria-controls="profile">
+    <span data-t="more">Profilo completo</span>
+    <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </button>
+
+  <div class="profile" id="profile" hidden>
+    <section class="sec"><h2 data-t="h-about">Profilo</h2><p class="lead" data-t="about"></p></section>
+    <section class="sec"><h2 data-t="h-exp">Esperienza</h2><div id="exp" class="sec"></div></section>
+    <section class="sec"><h2 data-t="h-edu">Formazione</h2><div id="edu" class="sec"></div></section>
+    <section class="sec"><h2 data-t="h-skills">Competenze</h2>
+      <div class="tier"><span class="mono" data-t="t-adv">Avanzato</span><div class="chips"><span>Rhinoceros</span><span>3ds Max</span><span>AutoCAD</span><span>InDesign</span><span>Photoshop</span></div></div>
+      <div class="tier"><span class="mono" data-t="t-int">Intermedio</span><div class="chips"><span>Illustrator</span><span>Blender</span><span>CloudCompare</span><span>Cura</span></div></div>
+      <div class="tier"><span class="mono" data-t="t-bas">Base</span><div class="chips"><span>Grasshopper</span><span>Unreal Engine</span><span>Tyflow</span><span>QGIS</span></div></div>
+      <div class="tier"><span class="mono" data-t="t-lab">Laboratorio</span><div class="chips" id="lab"></div></div>
+      <div class="tier"><span class="mono" data-t="t-core">Metodo</span><div class="chips" id="core"></div></div>
+    </section>
+    <section class="sec"><h2 data-t="h-lang">Lingue</h2>
+      <div class="langrow"><div><b data-t="it">Italiano</b><span data-t="native">Madrelingua</span></div><div><b data-t="en">Inglese</b><span>C1</span></div><div><b data-t="es">Spagnolo</b><span>A2</span></div></div>
+    </section>
+  </div>
+
+  <footer>
+    <svg viewBox="0 0 140 140" aria-hidden="true"><defs><clipPath id="fb"><path d="M75 0.36A35 35 0 0 1 75 69.64Z"/></clipPath></defs><g fill="currentColor"><path d="M65 0.03A70 70 0 0 0 65 139.97Z"/><path d="M75 75H139.82A70 70 0 0 1 75 139.82Z"/></g><g fill="currentColor" clip-path="url(#fb)"><rect x="75" y="0" width="7" height="65"/><rect x="89" y="0" width="7" height="65"/></g></svg>
+    <span class="mono">© 2026 Paolo Grandieri</span>
+  </footer>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const T={
+ it:{loc:"Italia",degree:"M.A. Industrial Design · M.A. Architettura Digitale",save:"Salva contatto",copy:"Copia",copied:"Copiato",phone:"Telefono",pfdesc:"Progetti selezionati 2026",soon:"In arrivo",more:"Profilo completo",less:"Chiudi profilo","h-about":"Profilo","h-exp":"Esperienza","h-edu":"Formazione","h-skills":"Competenze","h-lang":"Lingue","t-adv":"Avanzato","t-int":"Intermedio","t-bas":"Base","t-lab":"Laboratorio","t-core":"Metodo",it:"Italiano",en:"Inglese",es:"Spagnolo",native:"Madrelingua",
+  about:"Industrial designer e 3D visualizer. Lavoro tra prodotto, interni e visualizzazione digitale, dalla prima idea al prototipo. Mi interessano oggetti semplici, utili e coerenti, realizzati con qualità.",
+  lab:["Pantografo CNC","Stampa 3D","Sega a nastro"],core:["Schizzo","Prototipazione","Modellazione 3D","Rendering","Visual design","CMF"],
+  exp:[["2023","3D Artist & Interior Designer","Snono Studio · Santeramo in Colle","Progettazione, modellazione e rendering di interni ed esterni per abitazioni private."],
+       ["2021 — 22","Designer","Paulicelli Light Design · Capurso (BA)","Gestione del progetto di luminarie decorative per città in tutta Italia: modellazione e rendering 3D, schede tecniche e grafica, rapporti con clienti internazionali e uso di CNC e macchine da taglio in produzione."],
+       ["2020","Industrial Designer","Alulife® · D-Design S.r.l. · Milano","Sviluppo di concept per arredi in alluminio con modellazione 3D; cataloghi, grafica e schede tecniche dei materiali."]],
+  edu:[["2023 — 24","Master in Architettura Digitale (MADI)","Università IUAV di Venezia"],["2019 — 20","Master in Industrial Design","Scuola Politecnica di Design (SPD) · Milano"],["2016 — 19","Laurea in Disegno Industriale","Politecnico di Bari"],["2018","Workshop internazionale","Universitatea Politehnica din București"]]},
+ es:{loc:"Italia",degree:"M.A. Diseño Industrial · M.A. Arquitectura Digital",save:"Guardar contacto",copy:"Copiar",copied:"Copiado",phone:"Teléfono",pfdesc:"Proyectos seleccionados 2026",soon:"Próximamente",more:"Perfil completo",less:"Cerrar perfil","h-about":"Perfil","h-exp":"Experiencia","h-edu":"Formación","h-skills":"Competencias","h-lang":"Idiomas","t-adv":"Avanzado","t-int":"Intermedio","t-bas":"Básico","t-lab":"Taller","t-core":"Método",it:"Italiano",en:"Inglés",es:"Español",native:"Nativo",
+  about:"Diseñador industrial y 3D visualizer. Trabajo entre producto, interiores y visualización digital, de la primera idea al prototipo. Me interesan los objetos simples, útiles y coherentes, hechos con calidad.",
+  lab:["Pantógrafo CNC","Impresión 3D","Sierra de cinta"],core:["Boceto","Prototipado","Modelado 3D","Renderizado","Diseño visual","CMF"],
+  exp:[["2023","3D Artist & Interior Designer","Snono Studio · Santeramo in Colle","Diseño, modelado y renderizado de interiores y exteriores para viviendas privadas."],
+       ["2021 — 22","Diseñador","Paulicelli Light Design · Capurso (BA)","Gestión del proyecto de iluminación decorativa para ciudades de toda Italia: modelado y renderizado 3D, fichas técnicas y gráfica, relación con clientes internacionales y uso de CNC y máquinas de corte en producción."],
+       ["2020","Diseñador Industrial","Alulife® · D-Design S.r.l. · Milán","Desarrollo de conceptos de mobiliario en aluminio con modelado 3D; catálogos, gráfica y fichas técnicas de materiales."]],
+  edu:[["2023 — 24","Máster en Arquitectura Digital (MADI)","Università IUAV di Venezia"],["2019 — 20","Máster en Diseño Industrial","Scuola Politecnica di Design (SPD) · Milán"],["2016 — 19","Grado en Diseño Industrial","Politecnico di Bari"],["2018","Taller internacional","Universitatea Politehnica din București"]]},
+ en:{loc:"Italy",degree:"M.A. Industrial Design · M.A. Digital Architecture",save:"Save contact",copy:"Copy",copied:"Copied",phone:"Phone",pfdesc:"Selected projects 2026",soon:"Coming soon",more:"Full profile",less:"Close profile","h-about":"Profile","h-exp":"Experience","h-edu":"Education","h-skills":"Skills","h-lang":"Languages","t-adv":"Advanced","t-int":"Intermediate","t-bas":"Basic","t-lab":"Workshop","t-core":"Method",it:"Italian",en:"English",es:"Spanish",native:"Native",
+  about:"Industrial designer and 3D visualizer. I work across product, interiors and digital visualization, from first idea to prototype. I care about simple, useful and coherent objects, made with quality.",
+  lab:["CNC router","3D printing","Band saw"],core:["Sketching","Prototyping","3D modelling","Rendering","Visual design","CMF"],
+  exp:[["2023","3D Artist & Interior Designer","Snono Studio · Santeramo in Colle","Design, modelling and rendering of interiors and exteriors for private homes."],
+       ["2021 — 22","Designer","Paulicelli Light Design · Capurso (BA)","Led the design process for decorative street lighting in cities across Italy: 3D modelling and rendering, technical sheets and graphics, international client relations, and CNC and cutting machines in production."],
+       ["2020","Industrial Designer","Alulife® · D-Design S.r.l. · Milan","Aluminium furniture concepts developed through 3D modelling; catalogues, graphics and material data sheets."]],
+  edu:[["2023 — 24","Master in Digital Architecture (MADI)","Università IUAV di Venezia"],["2019 — 20","Master in Industrial Design","Scuola Politecnica di Design (SPD) · Milan"],["2016 — 19","Bachelor in Industrial Design","Politecnico di Bari"],["2018","International workshop","Universitatea Politehnica din București"]]}
+};
+let lang="it", open=false;
+const $=s=>document.querySelector(s);
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){
+  const d=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(el=>{const k=el.dataset.t; if(k==="more") el.textContent=open?d.less:d.more; else if(d[k]!==undefined) el.textContent=d[k];});
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("#exp").innerHTML=d.exp.map(e=>`<div class="item"><span class="when">${esc(e[0])}</span><div class="what"><h3>${esc(e[1])}</h3><span class="where">${esc(e[2])}</span><p>${esc(e[3])}</p></div></div>`).join("");
+  $("#edu").innerHTML=d.edu.map(e=>`<div class="item"><span class="when">${esc(e[0])}</span><div class="what"><h3>${esc(e[1])}</h3><span class="where">${esc(e[2])}</span></div></div>`).join("");
+  $("#lab").innerHTML=d.lab.map(x=>`<span>${esc(x)}</span>`).join("");
+  $("#core").innerHTML=d.core.map(x=>`<span>${esc(x)}</span>`).join("");
+}
+function setLang(l){ if(!T[l]) return; lang=l; try{localStorage.setItem("pg-lang",l)}catch(e){} if(location.hash!=="#"+l){try{history.replaceState(null,"","#"+l)}catch(e){}} render(); }
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.l)));
+$("#more").addEventListener("click",()=>{open=!open; $("#profile").hidden=!open; $("#more").setAttribute("aria-expanded",open); render();});
+let tt; function toast(m){const t=$("#toast"); t.textContent=m; t.hidden=false; clearTimeout(tt); tt=setTimeout(()=>t.hidden=true,1600);}
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",async()=>{
+  const v=b.dataset.copy;
+  try{await navigator.clipboard.writeText(v); toast(T[lang].copied+" · "+v);}
+  catch(e){const r=document.createRange(); r.selectNodeContents(b.parentElement.querySelector(".val")); const s=getSelection(); s.removeAllRanges(); s.addRange(r);}
+}));
+(function init(){
+  const h=(location.hash||"").slice(1); let l=null;
+  if(T[h]) l=h; else { try{l=localStorage.getItem("pg-lang")}catch(e){} }
+  if(!T[l]){ const n=(navigator.language||"it").slice(0,2).toLowerCase(); l=T[n]?n:"en"; }
+  lang=l; render();
+  window.addEventListener("hashchange",()=>{const k=location.hash.slice(1); if(T[k]&&k!==lang){lang=k; render();}});
+})();
+</script>
+</body>
+</html>
